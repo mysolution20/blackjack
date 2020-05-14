@@ -13,8 +13,8 @@ import javafx.stage.Stage;
 
 public class Blackjack extends Application {
 
-    private Image imageback = new Image("file:resources/table.png");
-    private Image card = new Image("file:resources/cards/2c.gif");
+    private Image imageback = new Image("table.png");
+    private Image card = new Image("cards/2c.gif");
     private FlowPane cards = new FlowPane(Orientation.HORIZONTAL);
 
     public static void main(String[] args) {
@@ -23,13 +23,17 @@ public class Blackjack extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
+        BackgroundSize backgroundSize = new BackgroundSize(50, 50, true, true, true, false);
+//        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
         BackgroundImage backgroundImage = new BackgroundImage(imageback, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         Background background = new Background(backgroundImage);
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+//        grid.setPadding(new Insets(6.5, 8.5, 9.5, 9.5));
         grid.setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
+//        grid.setHgap(3.5);
+//        grid.setVgap(3.5);
         grid.setHgap(5.5);
         grid.setVgap(5.5);
         grid.setBackground(background);
@@ -38,8 +42,7 @@ public class Blackjack extends Application {
         cards.getChildren().add(img);
 
         grid.add(cards, 0, 0, 3, 1);
-
-        Scene scene = new Scene(grid, 1600, 900, Color.BLACK);
+        Scene scene = new Scene(grid, 1300, 500, Color.BLACK);
 
         primaryStage.setTitle("BlackJack");
         primaryStage.setScene(scene);
